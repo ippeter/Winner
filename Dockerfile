@@ -1,9 +1,12 @@
 FROM python:2.7.16-alpine3.9
 
-WORKDIR /root
+WORKDIR /winner
 
-RUN pip install pymongo
+COPY winner.py .
+COPY requirements.txt .
 
-COPY winner.py winner.py
+RUN pip install --upgrade pip && pip install --trusted-host pypi.python.org -r requirements.txt
+
+ENV FLASK_APP winner.py
 
 ENTRYPOINT ["python", "winner.py"]
