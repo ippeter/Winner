@@ -1,6 +1,6 @@
 FROM python:2.7.16-alpine3.9
 
-WORKDIR /winner
+WORKDIR /app
 
 COPY winner.py .
 COPY requirements.txt .
